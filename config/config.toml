@@ -1,0 +1,28 @@
+# HTTP Server
+[server]
+	Address     = ":80"
+	ServerRoot  = "public"
+	ServerAgent = "fun-space"
+	LogPath     = "/tmp/log/fun-space/server"
+
+# Logger.
+[logger]
+    Path        = "/tmp/log/fun-space"
+    Level       = "all"
+    Stdout      = true
+
+# Template.
+[viewer]
+    Path        = "template"
+    DefaultFile = "index.html"
+    Delimiters  =  ["{{", "}}"]
+
+# Database.
+[database]
+    link  = "mysql:root:1234@tcp(127.0.0.1:3306)/test"
+    debug = true
+    # Database logger.
+    [database.logger]
+        Path   = "/tmp/log/fun-space/sql"
+        Level  = "all"
+        Stdout = true

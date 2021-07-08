@@ -1,14 +1,12 @@
 package main
 
 import (
-	"io"
-	"log"
-	"net/http"
+	_ "MySpace/boot"
+	_ "MySpace/router"
+
+	"github.com/gogf/gf/frame/g"
 )
 
 func main() {
-	http.HandleFunc("/", func(rw http.ResponseWriter, r *http.Request) {
-		io.WriteString(rw, "Welcome to my space!\n")
-	})
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	g.Server().Run()
 }
